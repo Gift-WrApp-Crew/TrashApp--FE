@@ -1,7 +1,5 @@
-import React from 'react'
-
-export default function routes() {
+export default function Routes() {
   return (
     <div>routes</div>
-  )
+  );
 }
