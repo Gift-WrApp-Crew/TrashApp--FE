@@ -17,7 +17,6 @@ export async function insertImage(image_url) {
     body: JSON.stringify(image_url),
   });
   const data = await rawResponse.json();
-  console.log(data, 'data');
 
   return data;
 }
