@@ -3,24 +3,30 @@ import React, { useState, useEffect } from 'react';
 import Post from './components/Post.jsx';
 
 export default function App() {
-  // const [posts, setPosts] = useState([]);
+  const [posts, setPosts] = useState([]);
 
-  // async function getTrashPostsOnLoad() {
-  //   const trashPosts = await getAllPosts();
-  //   console.log('trashPosts', trashPosts);
+  async function getTrashPostsOnLoad() {
+    const trashPosts = await getAllPosts();
+    console.log('trashPosts', trashPosts);
 
-  //   if (trashPosts) {
-  //     setPosts(trashPosts);
-  //   }
-  // }
+    if (trashPosts) {
+      setPosts(trashPosts);
+    }
+  }
 
-  // useEffect(() => {
-  //   getTrashPostsOnLoad();
-  // }, []);
+  useEffect(() => {
+    getTrashPostsOnLoad();
+  }, []);
 
   return (
     <>
-      <div>Whats app doc?</div>
+      <ul>
+        {posts.map((post) => (
+          <li key={post.id}>
+            <p>{post.caption}</p>
+          </li>
+        ))}
+      </ul>
       <Post />
     </>
   );

@@ -1,10 +1,13 @@
 import { useState, useEffect } from 'react';
 import { insertImage } from '../../state/services/fetch-utils.js';
+import { createPost } from '../../state/services/fetch-utils.js';
 
 export default function Post() {
   const [fileInputState, setFileInputState] = useState('');
   const [previewSource, setPreviewSource] = useState('');
   const [selectedFile, setSelectedFile] = useState('');
+  const [caption, setCaption] = useState('');
+
   const handleFileInputChange = (e) => {
     const file = e.target.files[0];
     previewFile(file);
@@ -20,7 +23,7 @@ export default function Post() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if(!previewSource) return;
+    if (!previewSource) return;
     uploadImage(previewSource);
   };
 
@@ -33,22 +36,30 @@ export default function Post() {
     }
   };
 
+  const handleSubmitTrashPost = async (e) => {
+    e.preventDefault();
+    await createPost({
+      caption,
+    });
+  };
   return (
     <div>
+      <form onSubmit={handleSubmitTrashPost}>
+        <input value={caption} onChange={(e) => setCaption(e.target.value)}></input>
+        <button>Add Post</button>
+      </form>
       <form onSubmit={handleSubmit}>
         <h1>upload pic here</h1>
-        <input 
-          type="file" 
-          name="image" 
+        <input
+          type="file"
+          name="image"
           onChange={handleFileInputChange}
-          value={fileInputState}>
-        </input>
+          value={fileInputState}
+        ></input>
 
         <button type="submit">upload!</button>
       </form>
-      {previewSource && (
-        <img src={previewSource} alt="image-preview" />
-      )}
+      {previewSource && <img src={previewSource} alt="image-preview" />}
       Post
     </div>
   );
