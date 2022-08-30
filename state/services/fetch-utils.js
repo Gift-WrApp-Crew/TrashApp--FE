@@ -10,7 +10,7 @@ export async function createPost(post) {
     body: JSON.stringify(post),
   });
   const data = await response.json();
-  console.log(data, 'DATA');
+  // console.log(data, 'DATA');
   return data;
 }
 
@@ -29,5 +29,7 @@ export async function insertImage(image_url) {
   });
   const data = await rawResponse.json();
 
+  console.log('DATAAA', data.result.secure_url);
   return data;
 }
+

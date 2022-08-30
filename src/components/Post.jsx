@@ -25,12 +25,14 @@ export default function Post() {
     e.preventDefault();
     if (!previewSource) return;
     uploadImage(previewSource);
+    console.log('previewSource', previewSource);
   };
 
   const uploadImage = async (image) => {
-    console.log('image', image);
     try {
-      await insertImage(image);
+      const { result } = await insertImage(image);
+      console.log('result.secure_url', result.secure_url);
+      return result.secure_url;
     } catch (error) {
       console.error(error);
     }
@@ -44,12 +46,8 @@ export default function Post() {
   };
   return (
     <div>
-      <form onSubmit={handleSubmitTrashPost}>
-        <input value={caption} onChange={(e) => setCaption(e.target.value)}></input>
-        <button>Add Post</button>
-      </form>
       <form onSubmit={handleSubmit}>
-        <h1>upload pic here</h1>
+        <h3>upload pic here</h3>
         <input
           type="file"
           name="image"
@@ -58,6 +56,11 @@ export default function Post() {
         ></input>
 
         <button type="submit">upload!</button>
+      </form>
+      <form onSubmit={handleSubmitTrashPost}>
+        <input value={caption} onChange={(e) => setCaption(e.target.value)}>
+        </input>
+        <button>Add Post</button>
       </form>
       {previewSource && <img src={previewSource} alt="image-preview" />}
       Post
