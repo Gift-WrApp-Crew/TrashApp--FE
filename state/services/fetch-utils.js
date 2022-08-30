@@ -4,6 +4,7 @@ export async function getAllPosts() {
 }
 
 export async function createPost(post) {
+  console.log('post', post);
   const response = await fetch(`${process.env.REACT_APP_API_URL}/api/v1/posts`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -15,6 +16,7 @@ export async function createPost(post) {
 }
 
 export async function insertImage(image_url) {
+  console.log(image_url);
   const newSubmission = {
     image: image_url,
   };
