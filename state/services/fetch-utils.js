@@ -1,11 +1,11 @@
 /* eslint-disable max-len */
 export async function getAllPosts() {
   const res = await fetch(`${process.env.REACT_APP_API_URL}/api/v1/posts`);
+  console.log('res.json', res.json);
   return res.json();
 }
 
 export async function createPost(post) {
-  console.log('post', post);
   const response = await fetch(`${process.env.REACT_APP_API_URL}/api/v1/posts`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -17,7 +17,6 @@ export async function createPost(post) {
 }
 
 export async function insertImage(image_url) {
-  console.log(image_url);
   const newSubmission = {
     image: image_url,
   };
@@ -32,11 +31,11 @@ export async function insertImage(image_url) {
   });
   const data = await rawResponse.json();
 
-  console.log('DATAAA', data.result.secure_url);
   return data;
 }
 
 export async function signUpUserFunction(user) {
+  console.log('USERR', user);
   const response = await fetch(`${process.env.REACT_APP_API_URL}/api/v1/users`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },

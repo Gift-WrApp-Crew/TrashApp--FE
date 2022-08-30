@@ -29,9 +29,7 @@ export default function Post() {
 
   const uploadImage = async (image) => {
     try {
-      console.log(image);
       const { result } = await insertImage(image);
-      console.log('secure_url', result.secure_url);
       await createPost({
         caption,
         image_url: result.secure_url

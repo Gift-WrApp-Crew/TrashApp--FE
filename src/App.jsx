@@ -40,8 +40,8 @@ export default function App() {
           {posts.map((post) => (
             <li key={post.id}>
               <p>{post.caption}</p>
-              <Images />
-              {/* <img src={post.image_url} /> */}
+              {/* <Images /> */}
+              <img src={post.image_url} />
             </li>
           ))}
         </ul>
