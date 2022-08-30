@@ -62,3 +62,26 @@ export async function getUser() {
   const data = await response.json();
   return data;
 }
+
+export async function createComment(comment) {
+  const response = await fetch(`${process.env.REACT_APP_API_URL}/api/v1/comments`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    credentials: 'include',
+    mode: 'cors',
+    body: JSON.stringify(comment),
+  });
+  const data = await response.json();
+  return data;
+}
+
+export async function getCommentsByPostId(post_id) {
+  const response = await fetch(`${process.env.REACT_APP_API_URL}/api/v1/comments/:id`, {
+    method: 'GET',
+    headers: { 'Content-Type': 'application/json' },
+    credentials: 'include',
+    mode: 'cors',
+  });
+  const data = await response.json(post_id);
+  return data;
+}
