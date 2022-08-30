@@ -41,9 +41,7 @@ export default function Post() {
     }
   };
 
-  // const handleSubmitTrashPost = async (e, image) => {
-  //   e.preventDefault();
-  // };
+
   return (
     <div>
       <form onSubmit={handleSubmit}>
@@ -55,7 +53,6 @@ export default function Post() {
           value={fileInputState}
         ></input>
 
-        {/* <button type="submit">upload!</button> */}
       </form>
       <form onSubmit={handleSubmit}>
         <input value={caption} onChange={(e) => setCaption(e.target.value)}>
