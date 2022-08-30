@@ -6,6 +6,7 @@ import SignUp from './components/SignUp';
 import { BrowserRouter as Router, NavLink, Route, Navigate, Routes } from 'react-router-dom';
 import Post from './components/Post';
 import { getAllPosts } from '../state/services/fetch-utils';
+import Images from './components/Images.jsx';
 
 export default function App() {
   const [posts, setPosts] = useState([]);
@@ -33,48 +34,66 @@ export default function App() {
   }, []);
 
   return (
-    <><>
-      <ul>
-        {posts.map((post) => (
-          <li key={post.id}>
-            <p>{post.caption}</p>
-            <img src={post.image_url} />
-          </li>
-        ))}
-      </ul>
-      <Post />
-    </><Router>
-      <header>
-        <NavLink to="/posts">Posts</NavLink>
-        <button onClick={handleLogout}>Logout</button>
-      </header>
-      <main>
-        <Routes>
-          <Route
-            exact
-            path="/"
-            element={!currentUser.id ? (
-              <SignIn setCurrentUser={setCurrentUser} />
-            ) : (
-              <Navigate to="/posts" />
-            )} />
+    <>
+      <>
+        <ul>
+          {posts.map((post) => (
+            <li key={post.id}>
+              <p>{post.caption}</p>
+              <Images />
+              {/* <img src={post.image_url} /> */}
+            </li>
+          ))}
+        </ul>
+        <Post />
+      </>
+      <Router>
+        <header>
+          <NavLink to="/posts">Posts</NavLink>
+          <button onClick={handleLogout}>Logout</button>
+        </header>
+        <main>
+          <Routes>
+            <Route
+              exact
+              path="/"
+              element={
+                !currentUser.id ? (
+                  <SignIn setCurrentUser={setCurrentUser} />
+                ) : (
+                  <Navigate to="/posts" />
+                )
+              }
+            />
 
-          <Route
-            exact
-            path="/signup"
-            element={!currentUser.id ? (
-              <SignUp setCurrentUser={setCurrentUser} />
-            ) : (
-              <Navigate to="/posts" />
-            )} />
+            <Route
+              exact
+              path="/signup"
+              element={
+                !currentUser.id ? (
+                  <SignUp setCurrentUser={setCurrentUser} />
+                ) : (
+                  <Navigate to="/posts" />
+                )
+              }
+            />
 
-          {/* <Route exact path="/posts">
+            {/* <Route exact path="/posts">
       {currentUser.id ? <Post postList={postList} /> : <Navigate to="/" />}
     </Route> */}
-        </Routes>
-      </main>
-    </Router></>
+          </Routes>
+        </main>
+      </Router>
+    </>
   );
+}
+
+{
+  /* <>
+  <div>Whats app doc?</div>
+  <Post />
+      <Images />
+</>; */
 }
 
 {
