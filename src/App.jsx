@@ -1,7 +1,6 @@
 /* eslint-disable max-len */
-import { getAllPosts, logoutUser } from '../state/services/fetch-utils';
-import React, { useState, useEffect, Fragment } from 'react';
-import Post from './components/Post.jsx';
+import { logoutUser } from '../state/services/fetch-utils';
+import { useState } from 'react';
 import SignIn from './components/SignIn';
 import SignUp from './components/SignUp';
 import { BrowserRouter as Router, NavLink, Route, Navigate, Routes } from 'react-router-dom';
@@ -50,7 +49,17 @@ export default function App() {
             }
           />
 
-          <Route exact path="/signup" element={<SignUp setCurrentUser={setCurrentUser} />} />
+          <Route
+            exact
+            path="/signup"
+            element={
+              !currentUser.id ? (
+                <SignUp setCurrentUser={setCurrentUser} />
+              ) : (
+                <Navigate to="/posts" />
+              )
+            }
+          />
 
           {/* <Route exact path="/posts">
             {currentUser.id ? <Post postList={postList} /> : <Navigate to="/" />}

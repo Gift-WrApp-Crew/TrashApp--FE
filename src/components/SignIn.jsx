@@ -1,8 +1,8 @@
 /* eslint-disable max-len */
-import React, { useState } from 'react';
+import { useState } from 'react';
+import './SignIn.css';
 import { getUser, signInUserFunction } from '../../state/services/fetch-utils';
-import { NavLink, Route, Routes } from 'react-router-dom';
-import SignUp from './SignUp';
+import { NavLink } from 'react-router-dom';
 export default function SignIn({ setCurrentUser }) {
   const [signInUser, setSignInUser] = useState({ email: '', password: '' });
 
@@ -14,10 +14,10 @@ export default function SignIn({ setCurrentUser }) {
   }
   return (
     <div>
-      <form onSubmit={handleSignIn}>
-        <h4>Sign In</h4>
+      <form className="sign-in-form" onSubmit={handleSignIn}>
+        <h4>THIS IS OUR LOGO</h4>
         <label>
-          email
+          Email
           <input
             className="sign-in-input"
             value={signInUser.email}
@@ -25,7 +25,7 @@ export default function SignIn({ setCurrentUser }) {
           />
         </label>
         <label>
-          password
+          Password
           <input
             className="sign-in-input"
             value={signInUser.password}
@@ -33,9 +33,13 @@ export default function SignIn({ setCurrentUser }) {
             onChange={(e) => setSignInUser({ ...signInUser, password: e.target.value })}
           />
         </label>
-        <button className="sign-in-button">Sign In</button>
+        <section>
+          <button className="sign-in-button">Sign In</button>
+          <NavLink className="link" to="/signup">
+            Sign Up Here
+          </NavLink>
+        </section>
       </form>
-      <NavLink to="/signup">Sign Up Here</NavLink>
     </div>
   );
 }

@@ -16,7 +16,7 @@ export default function SignUp({ setCurrentUser }) {
         <form onSubmit={handleSignUp}>
           <h4>Sign Up</h4>
           <label>
-            set username
+            Username
             <input
               className="username-input"
               value={signUpUser.username}
@@ -24,7 +24,7 @@ export default function SignUp({ setCurrentUser }) {
             />
           </label>
           <label>
-            email
+            Email
             <input
               className="sign-up-input"
               value={signUpUser.email}
@@ -32,7 +32,7 @@ export default function SignUp({ setCurrentUser }) {
             />
           </label>
           <label>
-            password
+            Password
             <input
               className="sign-up-input"
               value={signUpUser.password}
