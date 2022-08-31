@@ -19,16 +19,16 @@ export default function PostList() {
     getTrashPostsOnLoad();
   }, []);
 
-
   if (!posts) return null;
 
   return (
     <div className={styles.PostListContainer}>
       Post List
       {posts.length &&
-        posts.map((post) =>
+        posts.map((post) => (
           // <p>{post.caption}</p>;
           <Post key={post.id} post={post} />
-        )}
-    </div>);
+        ))}
+    </div>
+  );
 }
