@@ -70,5 +70,6 @@ export async function getUser() {
     mode: 'cors',
   });
   const data = await response.json();
+  console.log('DATATA', data);
   return data;
 }

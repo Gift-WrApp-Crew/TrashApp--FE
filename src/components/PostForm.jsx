@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
 import { insertImage } from '../../state/services/fetch-utils.js';
 import { createPost } from '../../state/services/fetch-utils.js';
+import { getUser } from '../../state/services/fetch-utils.js';
 
-export default function Post() {
+export default function PostForm() {
   const [fileInputState, setFileInputState] = useState('');
   const [previewSource, setPreviewSource] = useState('');
   const [selectedFile, setSelectedFile] = useState('');
@@ -30,9 +31,12 @@ export default function Post() {
   const uploadImage = async (image) => {
     try {
       const { result } = await insertImage(image);
+      const { username } = await getUser();
+
       await createPost({
         caption,
         image_url: result.secure_url,
+        username
       });
     } catch (error) {
       console.error(error);
@@ -59,12 +63,12 @@ export default function Post() {
         Post
       </div>
 
-      <div className={styles.PostCard}>
+      {/* <div className={styles.PostCard}>
         <h3>{post.caption}</h3>
         <p> {post.created_at}</p>
         <p> {post.username}</p>
         <img src={post.image_url} />
-      </div>
+      </div> */}
     </>
   );
 }
