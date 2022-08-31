@@ -1,0 +1,43 @@
+.AboutUs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.AboutUsContainer {
+  display: flex;
+  flex-direction: column;
+  font-family: Varela Round;
+}
+.ImageContainer {
+  height: 170px;
+  width: 100px;
+  border-radius: 50%;
+  min-width: 150px;
+  text-align: center;
+  padding: 20px;
+}
+
+.TeamMember {
+  height: 400=px;
+  display: flex;
+  background-color: lightgreen;
+  align-items: center;
+  flex-wrap: wrap;
+  /* padding-left: 20px; */
+  font-family: Varela Round;
+  margin: 40px;
+  border: 3px black solid;
+  -webkit-box-shadow: 6px 9px 18px -3px rgba(0, 0, 0, 0.39);
+  box-shadow: 6px 9px 18px -3px rgba(0, 0, 0, 0.39);
+  border-radius: 10px;
+  width: 225px;
+  flex-direction: column;
+  color: black;
+}
+
+.Buttons {
+  display: flex;
+  flex-direction: row;
+}
