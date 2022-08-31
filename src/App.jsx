@@ -6,14 +6,20 @@ import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-d
 import PostList from './components/PostList.jsx';
 import PostForm from './components/PostForm';
 import AboutUs from './components/AboutUs';
+
+import styles from './App.css';
+// import logo from './logo.png';
+
 import Navigation from './components/Navigation';
+
 
 export default function App() {
   const [currentUser, setCurrentUser] = useState({});
 
   return (
     <Router>
-      <header>{currentUser.id ? <Navigation /> : !(<Navigation />)}</header>
+      <header>{currentUser.id ? <Navigation /> : !(<Navigation />)}
+       <img className={styles.Logo} src="./logo.png" /></header>
       <main>
         <Routes>
           <Route
