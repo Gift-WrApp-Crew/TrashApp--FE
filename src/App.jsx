@@ -3,7 +3,9 @@ import { logoutUser } from '../state/services/fetch-utils';
 import { useState } from 'react';
 import SignIn from './components/SignIn';
 import SignUp from './components/SignUp';
-import { BrowserRouter as Router, NavLink, Route, Navigate, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, NavLink, Route, Routes, Navigate } from 'react-router-dom';
+import PostList from './components/PostList.jsx';
+import React, { Fragment } from 'react';
 
 export default function App() {
   const [currentUser, setCurrentUser] = useState({});
@@ -13,21 +15,6 @@ export default function App() {
     location.replace('/');
     setCurrentUser({});
   }
-
-  // const [posts, setPosts] = useState([]);
-
-  // async function getTrashPostsOnLoad() {
-  //   const trashPosts = await getAllPosts();
-  //   console.log('trashPosts', trashPosts);
-
-  //   if (trashPosts) {
-  //     setPosts(trashPosts);
-  //   }
-  // }
-
-  // useEffect(() => {
-  //   getTrashPostsOnLoad();
-  // }, []);
 
   return (
     <Router>
@@ -61,9 +48,11 @@ export default function App() {
             }
           />
 
-          {/* <Route exact path="/posts">
-            {currentUser.id ? <Post postList={postList} /> : <Navigate to="/" />}
-          </Route> */}
+          <Route
+            exact
+            path="/posts"
+            element={currentUser.id ? <PostList /> : <Navigate to="/" />}
+          />
         </Routes>
       </main>
     </Router>
@@ -72,7 +61,16 @@ export default function App() {
 
 {
   /* <>
-  <div>Whats app doc?</div>
-  <Post />
-</>; */
+//   <>
+//     <ul>
+//       {posts.map((post) => ( */
 }
+//         <li key={post.id}>
+//           <p>{post.caption}</p>
+//           {/* <Images /> */}
+//           <img src={post.image_url} />
+//         </li>
+//       ))}
+//     </ul>
+//     <Post />
+//   </>
