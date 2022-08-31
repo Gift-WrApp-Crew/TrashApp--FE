@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Image } from 'cloudinary-react';
 // import { getPhoto } from '../../state/services/fetch-utils.js';
 
@@ -9,7 +9,6 @@ export default function Images() {
     try {
       const res = await fetch(`${process.env.REACT_APP_API_URL}/api/images`);
       const data = await res.json();
-      console.log(data, 'DATA');
       setImageIds(data);
     } catch (err) {
       console.error(err);

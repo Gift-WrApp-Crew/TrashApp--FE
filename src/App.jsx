@@ -5,7 +5,7 @@ import SignIn from './components/SignIn';
 import SignUp from './components/SignUp';
 import { BrowserRouter as Router, NavLink, Route, Routes, Navigate } from 'react-router-dom';
 import PostList from './components/PostList.jsx';
-import React, { Fragment } from 'react';
+import PostForm from './components/PostForm';
 
 export default function App() {
   const [currentUser, setCurrentUser] = useState({});
@@ -20,6 +20,7 @@ export default function App() {
     <Router>
       <header>
         <NavLink to="/posts">Posts</NavLink>
+        <NavLink to="/create-post">Add Post</NavLink>
         <button onClick={handleLogout}>Logout</button>
       </header>
       <main>
@@ -52,6 +53,12 @@ export default function App() {
             exact
             path="/posts"
             element={currentUser.id ? <PostList /> : <Navigate to="/" />}
+          />
+
+          <Route
+            exact
+            path="/create-post"
+            element={currentUser.id ? <PostForm /> : <Navigate to="/" />}
           />
         </Routes>
       </main>
