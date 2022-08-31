@@ -36,7 +36,7 @@ export default function PostForm() {
       await createPost({
         caption,
         image_url: result.secure_url,
-        username
+        username,
       });
     } catch (error) {
       console.error(error);

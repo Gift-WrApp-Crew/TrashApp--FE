@@ -4,7 +4,12 @@ export async function getAllPosts() {
   return res.json();
 }
 
+// export async function getAllReactions() {
+//   const res = await fetch(`${process.env.REACT_APP_API_URL}/reactions`);
+// }
+
 export async function createPost(post) {
+  console.log(post, 'post');
   const response = await fetch(`${process.env.REACT_APP_API_URL}/posts`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -70,6 +75,5 @@ export async function getUser() {
     mode: 'cors',
   });
   const data = await response.json();
-  console.log('DATATA', data);
   return data;
 }
