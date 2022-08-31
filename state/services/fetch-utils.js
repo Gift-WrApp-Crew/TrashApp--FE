@@ -1,7 +1,6 @@
 /* eslint-disable max-len */
 export async function getAllPosts() {
   const res = await fetch(`${process.env.REACT_APP_API_URL}/posts`);
-  console.log('res.json', res.json);
   return res.json();
 }
 
@@ -12,7 +11,6 @@ export async function createPost(post) {
     body: JSON.stringify(post),
   });
   const data = await response.json();
-  // console.log(data, 'DATA');
   return data;
 }
 
@@ -35,7 +33,6 @@ export async function insertImage(image_url) {
 }
 
 export async function signUpUserFunction(user) {
-  console.log('USERR', user);
   const response = await fetch(`${process.env.REACT_APP_API_URL}/users`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },

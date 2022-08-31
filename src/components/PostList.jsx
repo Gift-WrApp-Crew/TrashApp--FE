@@ -1,4 +1,3 @@
-import React from 'react';
 import Post from './Post.jsx';
 import { useState, useEffect } from 'react';
 import { getAllPosts } from '../../state/services/fetch-utils';
@@ -18,16 +17,17 @@ export default function PostList() {
   useEffect(() => {
     getTrashPostsOnLoad();
   }, []);
+
+
   if (!posts) return null;
 
   return (
-    <>
+    <div>
       Post List
       {posts.length &&
-        posts.map((post) => {
-          <p>{post.caption}</p>;
-          // <Post key={post.id} post={post} />;
-        })}
-    </>
-  );
+        posts.map((post) =>
+          // <p>{post.caption}</p>;
+          <Post key={post.id} post={post} />
+        )}
+    </div>);
 }
