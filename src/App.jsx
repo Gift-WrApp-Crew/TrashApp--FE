@@ -7,6 +7,8 @@ import { BrowserRouter as Router, NavLink, Route, Routes, Navigate } from 'react
 import PostList from './components/PostList.jsx';
 import PostForm from './components/PostForm';
 import AboutUs from './components/AboutUs';
+import styles from './App.css';
+// import logo from './logo.png';
 
 export default function App() {
   const [currentUser, setCurrentUser] = useState({});
@@ -20,6 +22,7 @@ export default function App() {
   return (
     <Router>
       <header>
+        <img className={styles.Logo} src="./logo.png" />
         <NavLink to="/posts">Posts</NavLink>
         <NavLink to="/create-post">Add Post</NavLink>
         <NavLink to="/about">About</NavLink>

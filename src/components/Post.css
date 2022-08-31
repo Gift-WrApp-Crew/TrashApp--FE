@@ -1,9 +1,92 @@
-.PostCard {
-  border: solid black 1px;
-  border-radius: 10%;
-  height: 550px;
-  padding: 20px;
-  margin: 20px;
-  box-sizing: border-box;
+body {
+  background-color: #c5dca3;
+}
 
+.PostCard {
+  width: 500px;
+  height: 550px;
+  border: 1px solid #2d2d2d;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+  /* border-radius: 15px 50px 30px; */
+  border-radius: 10%;
+  background-color: #7e8f31;
+  box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, 0.2);
+  padding: 20px;
+  border: solid black 1px;
+}
+
+.Caption {
+  background-color: #c5dca3;
+  border: none;
+  color: black;
+  border-radius: 5px;
+  padding: 15px;
+  margin: 30px;
+  font-family: 'Xhers', sans-serif;
+}
+
+.PostHeader {
+  display: flex;
+  width: 90%;
+  justify-content: space-between;
+  margin: 8px;
+}
+
+.Username {
+  background-color: #c5dca3;
+  border: none;
+  color: black;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  border-radius: 12px;
+  font-family: 'Xhers', sans-serif;
+}
+
+.CreatedAt {
+  background-color: #c5dca3;
+  border: none;
+  color: black;
+  padding: 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 4px;
+  border-radius: 10px;
+  font-family: 'Xhers', sans-serif;
+}
+
+.ImageContainer {
+  height: 60%;
+}
+
+.PostImage {
+  width: 100%;
+  height: 100%;
+  border-radius: 5%;
+  border: 7px solid #555;
+  border-color: #c5dca3;
+}
+
+.Reactions {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.Button {
+  background-color: #c5dca3;
+  border: none;
+  border-radius: 12px;
+  margin: 10px;
+  padding: 5px;
+  width: 30px;
+  height: 30px;
 }
