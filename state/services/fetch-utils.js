@@ -1,12 +1,12 @@
 /* eslint-disable max-len */
 export async function getAllPosts() {
-  const res = await fetch(`${process.env.REACT_APP_API_URL}/api/v1/posts`);
+  const res = await fetch(`${process.env.REACT_APP_API_URL}/posts`);
   console.log('res.json', res.json);
   return res.json();
 }
 
 export async function createPost(post) {
-  const response = await fetch(`${process.env.REACT_APP_API_URL}/api/v1/posts`, {
+  const response = await fetch(`${process.env.REACT_APP_API_URL}/posts`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(post),
@@ -36,7 +36,7 @@ export async function insertImage(image_url) {
 
 export async function signUpUserFunction(user) {
   console.log('USERR', user);
-  const response = await fetch(`${process.env.REACT_APP_API_URL}/api/v1/users`, {
+  const response = await fetch(`${process.env.REACT_APP_API_URL}/users`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     credentials: 'include',
@@ -47,7 +47,7 @@ export async function signUpUserFunction(user) {
   return data;
 }
 export async function signInUserFunction(user) {
-  const response = await fetch(`${process.env.REACT_APP_API_URL}/api/v1/users/sessions`, {
+  const response = await fetch(`${process.env.REACT_APP_API_URL}/users/sessions`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     credentials: 'include',
@@ -58,7 +58,7 @@ export async function signInUserFunction(user) {
   return data;
 }
 export async function logoutUser() {
-  await fetch(`${process.env.REACT_APP_API_URL}/api/v1/users/sessions`, {
+  await fetch(`${process.env.REACT_APP_API_URL}/users/sessions`, {
     method: 'DELETE',
     headers: { 'Content-Type': 'application/json' },
     credentials: 'include',
@@ -66,7 +66,7 @@ export async function logoutUser() {
   });
 }
 export async function getUser() {
-  const response = await fetch(`${process.env.REACT_APP_API_URL}/api/v1/users/me`, {
+  const response = await fetch(`${process.env.REACT_APP_API_URL}/users/me`, {
     method: 'GET',
     headers: { 'Content-Type': 'application/json' },
     credentials: 'include',
