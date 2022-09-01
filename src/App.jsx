@@ -6,13 +6,13 @@ import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-d
 import PostList from './components/PostList.jsx';
 import PostForm from './components/PostForm';
 import AboutUs from './components/AboutUs';
-import FavoritesList from './components/LandingPage';
+import LandingPage from './components/LandingPage';
+import FavoritesList from './components/FavoritesList';
 
 import styles from './App.css';
 // import logo from './logo.png';
 
 import Navigation from './components/Navigation';
-import LandingPage from './components/LandingPage';
 
 export default function App() {
   const [currentUser, setCurrentUser] = useState({});
@@ -55,6 +55,8 @@ export default function App() {
             path="/posts"
             element={currentUser.id ? <PostList /> : <Navigate to="/" />}
           />
+
+          <Route exact path="/favorites" element={<FavoritesList />} />
 
           <Route exact path="/landing" element={<LandingPage />} />
 

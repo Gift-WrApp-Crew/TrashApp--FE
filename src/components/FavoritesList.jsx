@@ -15,15 +15,8 @@ export default function FavoritesList() {
 
   return (
     <div className="favoritesList">
-      {favPosts.map((post, i) => (
-        <>
-          <Post
-            key={post.id + post.caption + i + post.created_at}
-            {...post}
-            favPosts={favPosts}
-            fetch={fetch}
-          />
-        </>
+      {favPosts.map((post) => (
+        <Post key={post.id} post={post} favPosts={favPosts} fetch={fetch} />
       ))}
     </div>
   );

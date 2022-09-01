@@ -5,6 +5,7 @@ import { addtoFavorites } from '../../state/services/fetch-utils';
 import React, { useEffect, useState } from 'react';
 
 export default function Post({ post, getTrashPostsOnLoad }) {
+  console.log(post, 'POST');
   // const [fav, setFav] = useState('');
 
   async function handleTrashIncrement() {
@@ -37,7 +38,7 @@ export default function Post({ post, getTrashPostsOnLoad }) {
   return (
     <>
       <div className={styles.PostHeader}>
-        <h2 className={styles.Username}>{post.username}</h2>
+        <h2 className={styles.Username}>{post.username ?? 'Anonymous'}</h2>
         <h5 className={styles.CreatedAt}> {post.created_at ?? new Date().toDateString()}</h5>
       </div>
       <div className={styles.ImageContainer}>
