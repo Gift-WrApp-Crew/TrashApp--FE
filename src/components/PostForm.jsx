@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { insertImage } from '../../state/services/fetch-utils.js';
 import { createPost } from '../../state/services/fetch-utils.js';
 import { getUser } from '../../state/services/fetch-utils.js';
+import styles from './PostForm.css';
 
 export default function PostForm() {
   const [fileInputState, setFileInputState] = useState('');
@@ -46,22 +47,31 @@ export default function PostForm() {
 
   return (
     <>
-      <div>
-        <form onSubmit={handleSubmit}>
-          <h3>upload pic here</h3>
-          <input
-            type="file"
-            name="image"
-            onChange={handleFileInputChange}
-            value={fileInputState}
-          ></input>
-        </form>
-        <form onSubmit={handleSubmit}>
-          <input value={caption} onChange={(e) => setCaption(e.target.value)}></input>
-          <button>Add Post</button>
-        </form>
-        {previewSource && <img src={previewSource} alt="image-preview" />}
-        Post
+      <div className={styles.Container}>
+        <div className={styles.FormContainer}>
+          <form onSubmit={handleSubmit}>
+            <h3>Upload Your Trash or Treasure Here</h3>
+            <input
+              type="file"
+              name="image"
+              onChange={handleFileInputChange}
+              value={fileInputState}
+            ></input>
+          </form>
+          <div className={styles.PreviewImage}>
+            {previewSource && (
+              <img height="300px" width="300px" src={previewSource} alt="image-preview" />
+            )}
+          </div>
+          <form onSubmit={handleSubmit}>
+            <input
+              value={caption}
+              onChange={(e) => setCaption(e.target.value)}
+              placeholder="Add Your Caption"
+            ></input>
+            <button>Add Post</button>
+          </form>
+        </div>
       </div>
 
       {/* <div className={styles.PostCard}>

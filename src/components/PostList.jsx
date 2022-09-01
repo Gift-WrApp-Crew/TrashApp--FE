@@ -32,6 +32,7 @@ export default function PostList() {
         posts.map((post) => (
           // <p>{post.caption}</p>;
           <Post key={post.id} post={post} getTrashPostsOnLoad={getTrashPostsOnLoad} />
+
         ))}
     </div>
   );

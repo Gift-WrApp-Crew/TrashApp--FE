@@ -20,13 +20,18 @@ export default function Post({ post, getTrashPostsOnLoad }) {
   }
 
   return (
-    <div className={styles.PostCard}>
-      <h3>{post.username}</h3>
-      <p>{post.created_at}</p>
-      <h4>{post.caption}</h4>
-      <img src={post.image_url} />
+      <div className={styles.PostHeader}>
+        <h2 className={styles.Username}>{post.username}</h2>
+        <h5 className={styles.CreatedAt}> {post.created_at ?? new Date().toDateString()}</h5>
+      </div>
+      <div className={styles.ImageContainer}>
+        <img className={styles.PostImage} src={post.image_url} />
+      </div>
+      <h4 className={styles.Caption}>{post.caption}</h4>
+      <div className={styles.Reactions}>
       <button onClick={handleTreasureIncrement}>💎{post.treasure_reaction}</button>
       <button onClick={handleTrashIncrement}>🗑️{post.trash_reaction}</button>
+      </div>
     </div>
   );
 }

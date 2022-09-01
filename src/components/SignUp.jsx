@@ -1,5 +1,5 @@
 /* eslint-disable max-len */
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { getUser, signUpUserFunction } from '../../state/services/fetch-utils';
 export default function SignUp({ setCurrentUser }) {
   const [signUpUser, setSignUpUser] = useState({ email: '', password: '', username: '' });
