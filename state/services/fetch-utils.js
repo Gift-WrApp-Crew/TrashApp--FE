@@ -4,6 +4,10 @@ export async function getAllPosts() {
   return res.json();
 }
 
+// export async function getAllReactions() {
+//   const res = await fetch(`${process.env.REACT_APP_API_URL}/reactions`);
+// }
+
 export async function createPost(post) {
   const response = await fetch(`${process.env.REACT_APP_API_URL}/posts`, {
     method: 'POST',
@@ -11,6 +15,17 @@ export async function createPost(post) {
     body: JSON.stringify(post),
   });
   const data = await response.json();
+  return data;
+}
+
+export async function updatePost(post) {
+  const response = await fetch(`${process.env.REACT_APP_API_URL}/posts/${post.id}`, {
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(post),
+  });
+  const data = await response.json();
+  console.log(data, 'A FUNKY STRING OF DATA');
   return data;
 }
 
@@ -70,6 +85,5 @@ export async function getUser() {
     mode: 'cors',
   });
   const data = await response.json();
-  console.log('DATATA', data);
   return data;
 }
