@@ -9,13 +9,23 @@ export async function getAllPosts() {
 // }
 
 export async function createPost(post) {
-  console.log(post, 'post');
   const response = await fetch(`${process.env.REACT_APP_API_URL}/posts`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(post),
   });
   const data = await response.json();
+  return data;
+}
+
+export async function updatePost(post) {
+  const response = await fetch(`${process.env.REACT_APP_API_URL}/posts/${post.id}`, {
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(post),
+  });
+  const data = await response.json();
+  console.log(data, 'A FUNKY STRING OF DATA');
   return data;
 }
 
