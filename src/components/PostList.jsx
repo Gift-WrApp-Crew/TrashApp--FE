@@ -13,6 +13,9 @@ export default function PostList() {
   const [search, setSearch] = useState('');
   const [filteredResults, setFilteredResults] = useState([]);
 
+  useEffect(() => {
+    getTrashPostsOnLoad();
+  }, []);
 
   async function getTrashPostsOnLoad() {
     const trashPosts = await getAllPosts();
@@ -23,9 +26,6 @@ export default function PostList() {
     }
   }
 
-  useEffect(() => {
-    getTrashPostsOnLoad();
-  }, []);
 
   useEffect(() => {
     if (search) {

@@ -35,7 +35,6 @@ export default function PostForm() {
   const uploadImage = async (image) => {
     try {
       const { result } = await insertImage(image);
-      console.log('result', result.secure_url);
       const { username } = await getUser();
 
       await createPost({
