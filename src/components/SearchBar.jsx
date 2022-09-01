@@ -1,67 +1,29 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable max-len */
 import { useState } from 'react';
+import styles from './SearchBar.css';
+
 // import "./SearchBar.css";
 
-export default function SearchBar({ placeholder, posts }) {
-  const [filteredData, setFilteredData] = useState([]);
-  const [wordEntered, setWordEntered] = useState('');
-  const [newList, setNewList] = [];
-
-  const handleFilter = (event) => {
-    const searchWord = event.target.value;
-    setWordEntered(searchWord);
-    const newFilter = posts.filter((value) => {
-      return value.caption.toLowerCase().includes(searchWord.toLowerCase());
-    });
-
-    if (searchWord === '') {
-      setFilteredData([]);
+export default function SearchBar({ setFilteredData, search, setSearch }) {
+  const handleSearch = (e) => {
+    if (search === '') {
+      setFilteredData(false);
     } else {
-      setFilteredData(newFilter);
+      setFilteredData(true);
     }
+    setSearch(e.target.value);
   };
-  // render posts whose captions === filteredData
-  // if posts.caption === filteredData {
-  // setNewList(filteredData);
-
-  const clearInput = () => {
-    setFilteredData([]);
-    setWordEntered('');
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // filter through filteredData to check if wordEntered is in it
-    // if so, render posts with that
-    if (posts.caption === filteredData) {
-      setNewList(filteredData);
-    }
-  };
+  // dont setSearch until you submit
+  // form on submit, setSearch=e.target.value
 
   return (
     <div className="search">
-      <div className="searchInputs">
-        <input type="text" placeholder={placeholder} value={wordEntered} onChange={handleFilter} />
-        <div>
-          {filteredData.length === 0 ? (
-            <button onClick={handleSubmit}>Save Search</button>
-          ) : (
-            <button id="clearBtn" onClick={clearInput} title="clear" />
-          )}
-        </div>
+      <div className={styles.SearchBar}>
+        <h2>Filter Your Trash</h2>
+        <input onChange={handleSearch} type="search" placeholder="Search Posts" />
+        <button>Search!</button>
       </div>
-      {filteredData.length != 0 && (
-        <div className="dataResult">
-          {filteredData.map((value, key) => {
-            return (
-              <a className="dataItem" key={key.caption} target="_blank">
-                <p>{value.caption} </p>
-              </a>
-            );
-          })}
-        </div>
-      )}
     </div>
   );
 }
