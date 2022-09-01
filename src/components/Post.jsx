@@ -1,10 +1,12 @@
 /* eslint-disable max-len */
 import styles from './Post.css';
+// import { useHistory } from 'react-router-dom';
 import { updatePost } from '../../state/services/fetch-utils';
 import { deletePost } from '../../state/services/fetch-utils';
 import { getUser } from '../../state/services/fetch-utils';
 
 export default function Post({ post, getTrashPostsOnLoad }) {
+  // const history = useHistory();
   async function handleTrashIncrement() {
     await updatePost({
       ...post,
@@ -27,6 +29,7 @@ export default function Post({ post, getTrashPostsOnLoad }) {
       await deletePost({
         ...post
       });
+    // history.push('/');
   }
 
   return (
