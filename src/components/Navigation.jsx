@@ -5,9 +5,10 @@ import EmojiPeopleIcon from '@mui/icons-material/EmojiPeople';
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 import AddBoxIcon from '@mui/icons-material/AddBox';
 import HomeIcon from '@mui/icons-material/Home';
-import { AppBar, Toolbar, Stack, Button } from '@mui/material';
+import { AppBar, Toolbar, Stack, Button, Box } from '@mui/material';
 import { Link } from 'react-router-dom';
 import { logoutUser } from '../../state/services/fetch-utils';
+import { Block } from '@mui/icons-material';
 
 export default function Navigation() {
   const [currentUser, setCurrentUser] = useState({});

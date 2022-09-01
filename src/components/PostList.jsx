@@ -14,7 +14,6 @@ export default function PostList() {
 
   async function getTrashPostsOnLoad() {
     const trashPosts = await getAllPosts();
-    console.log('trashPosts', trashPosts);
 
     if (trashPosts) {
       setPosts(trashPosts);
@@ -46,8 +45,13 @@ export default function PostList() {
 
   return (
     <>
-      <div>
-        <SearchBar setFilteredData={setFilteredData} setSearch={setSearch} search={search} />
+      <div styles={{ position: 'relative', left: '80px' }}>
+        <SearchBar
+          setFilteredData={setFilteredData}
+          setSearch={setSearch}
+          search={search}
+          setFilteredResults={setFilteredResults}
+        />
       </div>
       <div className={styles.PostListContainer}>{conditionalRender()}</div>
     </>
