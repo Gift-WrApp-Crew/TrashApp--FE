@@ -1,14 +1,18 @@
+/* eslint-disable no-unused-vars */
+
 /* eslint-disable max-len */
 import Post from './Post.jsx';
 import { useState, useEffect } from 'react';
 import { getAllPosts } from '../../state/services/fetch-utils';
 import styles from './PostList.css';
+import SearchBar from './SearchBar.jsx';
 
 export default function PostList() {
+  const [filteredData, setFilteredData] = useState(false);
   const [posts, setPosts] = useState(null);
-  // store boolean state value, pass down setUpdatedpost into each mapped post, after update set vote values to true, useeffect to watch boolean state value & refetches
+  const [search, setSearch] = useState('');
+  const [filteredResults, setFilteredResults] = useState([]);
 
-  //in post.jsx check at button if trashvote is < than state value then display trash reaction, otherwise display trashIncrement
 
   async function getTrashPostsOnLoad() {
     const trashPosts = await getAllPosts();
@@ -23,17 +27,31 @@ export default function PostList() {
     getTrashPostsOnLoad();
   }, []);
 
+  useEffect(() => {
+    if (search) {
+      const filteredPosts = posts.filter((value) => {
+        return value.caption.toLowerCase().includes(search.toLowerCase());
+      });
+      setFilteredResults(filteredPosts);
+    }
+  }, [search]);
+
+  function conditionalRender() {
+    if (!filteredResults.length) {
+      return posts.length && posts.map((post) => <Post key={post.id} post={post} getTrashPostsOnLoad={getTrashPostsOnLoad} />);
+    } else {
+      return filteredResults.map((post) => <Post key={post.id} post={post} getTrashPostsOnLoad={getTrashPostsOnLoad} />);
+    }
+  }
+
   if (!posts) return null;
 
   return (
-    <div className={styles.PostListContainer}>
-      Post List
-      {posts.length &&
-        posts.map((post) => (
-          // <p>{post.caption}</p>;
-          <Post key={post.id} post={post} getTrashPostsOnLoad={getTrashPostsOnLoad} />
-
-        ))}
-    </div>
+    <>
+      <div>
+        <SearchBar setFilteredData={setFilteredData} setSearch={setSearch} search={search} />
+      </div>
+      <div className={styles.PostListContainer}>{conditionalRender()}</div>
+    </>
   );
 }

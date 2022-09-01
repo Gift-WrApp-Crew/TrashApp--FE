@@ -1,5 +1,6 @@
 /* eslint-disable max-len */
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { insertImage } from '../../state/services/fetch-utils.js';
 import { createPost } from '../../state/services/fetch-utils.js';
 import { getUser } from '../../state/services/fetch-utils.js';
@@ -8,8 +9,8 @@ import styles from './PostForm.css';
 export default function PostForm() {
   const [fileInputState, setFileInputState] = useState('');
   const [previewSource, setPreviewSource] = useState('');
-  const [selectedFile, setSelectedFile] = useState('');
   const [caption, setCaption] = useState('');
+  const history = useNavigate();
 
   const handleFileInputChange = (e) => {
     const file = e.target.files[0];
@@ -28,11 +29,13 @@ export default function PostForm() {
     e.preventDefault();
     if (!previewSource) return;
     uploadImage(previewSource);
+    history('/posts');
   };
 
   const uploadImage = async (image) => {
     try {
       const { result } = await insertImage(image);
+      console.log('result', result.secure_url);
       const { username } = await getUser();
 
       await createPost({
@@ -74,12 +77,7 @@ export default function PostForm() {
         </div>
       </div>
 
-      {/* <div className={styles.PostCard}>
-        <h3>{post.caption}</h3>
-        <p> {post.created_at}</p>
-        <p> {post.username}</p>
-        <img src={post.image_url} />
-      </div> */}
+
     </>
   );
 }
