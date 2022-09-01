@@ -1,4 +1,6 @@
+/* eslint-disable max-len */
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { insertImage } from '../../state/services/fetch-utils.js';
 import { createPost } from '../../state/services/fetch-utils.js';
 import { getUser } from '../../state/services/fetch-utils.js';
@@ -9,6 +11,7 @@ export default function PostForm() {
   const [previewSource, setPreviewSource] = useState('');
   const [selectedFile, setSelectedFile] = useState('');
   const [caption, setCaption] = useState('');
+  const history = useNavigate();
 
   const handleFileInputChange = (e) => {
     const file = e.target.files[0];
@@ -27,6 +30,7 @@ export default function PostForm() {
     e.preventDefault();
     if (!previewSource) return;
     uploadImage(previewSource);
+    history('/posts');
   };
 
   const uploadImage = async (image) => {
@@ -82,3 +86,4 @@ export default function PostForm() {
     </>
   );
 }
+  

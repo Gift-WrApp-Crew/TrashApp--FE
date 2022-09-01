@@ -19,7 +19,7 @@ export default function App() {
   return (
     <Router>
       <header>{currentUser.id ? <Navigation /> : !(<Navigation />)}
-       <img className={styles.Logo} src="./logo.png" /></header>
+        <img className={styles.Logo} src="./logo.png" /></header>
       <main>
         <Routes>
           <Route
