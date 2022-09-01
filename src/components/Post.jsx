@@ -20,6 +20,7 @@ export default function Post({ post, getTrashPostsOnLoad }) {
   }
 
   return (
+    <>
       <div className={styles.PostHeader}>
         <h2 className={styles.Username}>{post.username}</h2>
         <h5 className={styles.CreatedAt}> {post.created_at ?? new Date().toDateString()}</h5>
@@ -29,9 +30,9 @@ export default function Post({ post, getTrashPostsOnLoad }) {
       </div>
       <h4 className={styles.Caption}>{post.caption}</h4>
       <div className={styles.Reactions}>
-      <button onClick={handleTreasureIncrement}>💎{post.treasure_reaction}</button>
-      <button onClick={handleTrashIncrement}>🗑️{post.trash_reaction}</button>
+        <button onClick={handleTreasureIncrement}>💎{post.treasure_reaction}</button>
+        <button onClick={handleTrashIncrement}>🗑️{post.trash_reaction}</button>
       </div>
-    </div>
+    </>
   );
 }
