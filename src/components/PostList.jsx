@@ -27,7 +27,6 @@ export default function PostList() {
 
   return (
     <div className={styles.PostListContainer}>
-      Post List
       {posts.length &&
         posts.map((post) => (
           // <p>{post.caption}</p>;

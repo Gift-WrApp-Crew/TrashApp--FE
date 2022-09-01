@@ -2,6 +2,7 @@
 import styles from './Post.css';
 import { updatePost } from '../../state/services/fetch-utils';
 import { deletePost } from '../../state/services/fetch-utils';
+import { getUser } from '../../state/services/fetch-utils';
 
 export default function Post({ post, getTrashPostsOnLoad }) {
   async function handleTrashIncrement() {
@@ -21,9 +22,11 @@ export default function Post({ post, getTrashPostsOnLoad }) {
   }
 
   async function handleDeletePost() {
-    await deletePost({
-      ...post
-    });
+    const { username } = await getUser();
+    if (post.username === username)
+      await deletePost({
+        ...post
+      });
   }
 
   return (
