@@ -1,4 +1,5 @@
 /* eslint-disable no-unused-vars */
+
 /* eslint-disable max-len */
 import Post from './Post.jsx';
 import { useState, useEffect } from 'react';
@@ -11,6 +12,7 @@ export default function PostList() {
   const [posts, setPosts] = useState(null);
   const [search, setSearch] = useState('');
   const [filteredResults, setFilteredResults] = useState([]);
+
 
   async function getTrashPostsOnLoad() {
     const trashPosts = await getAllPosts();
