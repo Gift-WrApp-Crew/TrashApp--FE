@@ -9,7 +9,6 @@ import styles from './PostForm.css';
 export default function PostForm() {
   const [fileInputState, setFileInputState] = useState('');
   const [previewSource, setPreviewSource] = useState('');
-  const [selectedFile, setSelectedFile] = useState('');
   const [caption, setCaption] = useState('');
   const history = useNavigate();
 
@@ -77,13 +76,7 @@ export default function PostForm() {
         </div>
       </div>
 
-      {/* <div className={styles.PostCard}>
-        <h3>{post.caption}</h3>
-        <p> {post.created_at}</p>
-        <p> {post.username}</p>
-        <img src={post.image_url} />
-      </div> */}
+
     </>
   );
 }
-  
