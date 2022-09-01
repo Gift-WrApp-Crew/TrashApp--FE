@@ -4,6 +4,25 @@ export async function getAllPosts() {
   return res.json();
 }
 
+export async function addtoFavorites(id) {
+  const response = await fetch(`${process.env.REACT_APP_API_URL}/posts/favorites`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ id }),
+  });
+  const data = await response.json();
+  return data;
+}
+
+export async function getFavorites() {
+  const response = await fetch(`${process.env.REACT_APP_API_URL}/posts/favorites`, {
+    method: 'GET',
+    headers: { 'Content-Type': 'application/json' },
+  });
+  const data = await response.json();
+  return data;
+}
+
 // export async function getAllReactions() {
 //   const res = await fetch(`${process.env.REACT_APP_API_URL}/reactions`);
 // }

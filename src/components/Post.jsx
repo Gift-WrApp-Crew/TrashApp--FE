@@ -1,8 +1,12 @@
 /* eslint-disable max-len */
 import styles from './Post.css';
 import { updatePost } from '../../state/services/fetch-utils';
+import { addtoFavorites } from '../../state/services/fetch-utils';
+import React, { useEffect, useState } from 'react';
 
 export default function Post({ post, getTrashPostsOnLoad }) {
+  // const [fav, setFav] = useState('');
+
   async function handleTrashIncrement() {
     await updatePost({
       ...post,
@@ -10,6 +14,17 @@ export default function Post({ post, getTrashPostsOnLoad }) {
     });
     getTrashPostsOnLoad();
   }
+
+  async function addFavoritePost() {
+    const newFavorite = await addtoFavorites(post.id);
+    console.log(newFavorite, 'newFavorite');
+    // await fetch();
+  }
+
+  // useEffect(() => {
+  //   const matchingId = post.favPosts.find((favPost) => Number(favPost.id) === Number(post.id));
+  //   setFav(matchingId);
+  // }, [post.favPosts, post.id]);
 
   async function handleTreasureIncrement() {
     await updatePost({
@@ -32,6 +47,7 @@ export default function Post({ post, getTrashPostsOnLoad }) {
       <div className={styles.Reactions}>
         <button onClick={handleTreasureIncrement}>💎{post.treasure_reaction}</button>
         <button onClick={handleTrashIncrement}>🗑️{post.trash_reaction}</button>
+        <button onClick={addFavoritePost}>❤️</button>
       </div>
     </>
   );
