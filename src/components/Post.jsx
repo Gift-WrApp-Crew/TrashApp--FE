@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import styles from './Post.css';
 
 export default function Post({ post }) {
