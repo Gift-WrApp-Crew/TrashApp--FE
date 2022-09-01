@@ -1,6 +1,7 @@
 /* eslint-disable max-len */
 import styles from './Post.css';
 import { updatePost } from '../../state/services/fetch-utils';
+import { deletePost } from '../../state/services/fetch-utils';
 
 export default function Post({ post, getTrashPostsOnLoad }) {
   async function handleTrashIncrement() {
@@ -19,6 +20,12 @@ export default function Post({ post, getTrashPostsOnLoad }) {
     getTrashPostsOnLoad();
   }
 
+  async function handleDeletePost() {
+    await deletePost({
+      ...post
+    });
+  }
+
   return (
     <>
       <div className={styles.PostHeader}>
@@ -32,6 +39,7 @@ export default function Post({ post, getTrashPostsOnLoad }) {
       <div className={styles.Reactions}>
         <button onClick={handleTreasureIncrement}>💎{post.treasure_reaction}</button>
         <button onClick={handleTrashIncrement}>🗑️{post.trash_reaction}</button>
+        <button onClick={handleDeletePost}>Delete Post</button>
       </div>
     </>
   );
