@@ -5,7 +5,8 @@ import EmojiPeopleIcon from '@mui/icons-material/EmojiPeople';
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 import AddBoxIcon from '@mui/icons-material/AddBox';
 import HomeIcon from '@mui/icons-material/Home';
-import { AppBar, Toolbar, Stack, Button } from '@mui/material';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import { AppBar, Toolbar, Stack, Button, Box, Typography } from '@mui/material';
 import { Link } from 'react-router-dom';
 import { logoutUser } from '../../state/services/fetch-utils';
 
@@ -18,9 +19,9 @@ export default function Navigation() {
     setCurrentUser({});
   }
   return (
-    <AppBar position="static" style={{ backgroundColor: 'green' }} sx={{ width: '100%' }}>
-      <Toolbar style={{ color: 'black' }}>
-        <Stack direction="row" spacing={15}>
+    <AppBar position="static" style={{ backgroundColor: 'black' }} sx={{ width: '100%' }}>
+      <Toolbar style={{ color: '#7e8f31' }}>
+        <Stack direction="row" spacing={25}>
           <Button
             size="large"
             edge="start"
@@ -41,6 +42,16 @@ export default function Navigation() {
             to={'/create-post'}
           >
             <AddBoxIcon sx={{ fontSize: 30 }} />
+          </Button>
+          <Button
+            size="large"
+            edge="start"
+            color="inherit"
+            aria-label="logo"
+            component={Link}
+            to={'/favorite'}
+          >
+            <FavoriteIcon sx={{ fontSize: 30 }} />
           </Button>
           <Button
             size="large"

@@ -13,7 +13,7 @@ form {
   justify-content: center;
   align-items: center;
   margin: 3px;
-  font-family: 'Varela Round';
+  font-family: 'Xhers', sans-serif;
 }
 
 button {
@@ -24,7 +24,7 @@ button {
   /* padding: 20px; */
   border-radius: 10px;
   font-size: 15px;
-  font-family: 'Varela Round';
+  font-family: 'Xhers', sans-serif;
   font-weight: 500;
   display: flex;
   flex-direction: column;

@@ -17,7 +17,6 @@ export default function SignIn({ setCurrentUser }) {
   return (
     <div>
       <form className="sign-in-form" onSubmit={handleSignIn}>
-        <h4>THIS IS OUR LOGO</h4>
         <label>
           Email
           <input

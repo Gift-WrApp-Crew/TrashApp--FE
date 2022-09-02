@@ -12,6 +12,7 @@ export default function PostList({ posts, setPosts}) {
   const [search, setSearch] = useState('');
   const [filteredResults, setFilteredResults] = useState([]);
 
+
   useEffect(() => {
     console.log('fetchingPosts');
     getTrashPostsOnLoad();
@@ -47,8 +48,13 @@ export default function PostList({ posts, setPosts}) {
 
   return (
     <>
-      <div>
-        <SearchBar setFilteredData={setFilteredData} setSearch={setSearch} search={search} />
+      <div styles={{ position: 'absolute', left: 30, top: 0, paddingLeft: 20 }}>
+        <SearchBar
+          setFilteredData={setFilteredData}
+          setSearch={setSearch}
+          search={search}
+          setFilteredResults={setFilteredResults}
+        />
       </div>
       <div className={styles.PostListContainer}>{conditionalRender()}</div>
     </>

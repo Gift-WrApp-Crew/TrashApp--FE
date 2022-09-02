@@ -1,5 +1,7 @@
 /* eslint-disable max-len */
 import { useState } from 'react';
+import './SignIn.css';
+import { NavLink } from 'react-router-dom';
 import { getUser, signUpUserFunction } from '../../state/services/fetch-utils';
 export default function SignUp({ setCurrentUser }) {
   const [signUpUser, setSignUpUser] = useState({ email: '', password: '', username: '' });
@@ -40,7 +42,12 @@ export default function SignUp({ setCurrentUser }) {
               onChange={(e) => setSignUpUser({ ...signUpUser, password: e.target.value })}
             />
           </label>
-          <button className="sign-up-button">Sign Up</button>
+          <section>
+            <button className="sign-up-button">Sign Up</button>
+            <NavLink className="link" to="/">
+              Back to Sign In
+            </NavLink>
+          </section>
         </form>
       </div>
     </div>

@@ -77,8 +77,6 @@ export default function PostForm({ setPosts }) {
           </form>
         </div>
       </div>
-
-
     </>
   );
 }
