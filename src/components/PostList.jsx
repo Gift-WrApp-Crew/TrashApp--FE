@@ -7,11 +7,16 @@ import { getAllPosts } from '../../state/services/fetch-utils';
 import styles from './PostList.css';
 import SearchBar from './SearchBar.jsx';
 
-export default function PostList() {
+export default function PostList({ posts, setPosts}) {
   const [filteredData, setFilteredData] = useState(false);
-  const [posts, setPosts] = useState(null);
   const [search, setSearch] = useState('');
   const [filteredResults, setFilteredResults] = useState([]);
+
+
+  useEffect(() => {
+    console.log('fetchingPosts');
+    getTrashPostsOnLoad();
+  }, []);
 
   async function getTrashPostsOnLoad() {
     const trashPosts = await getAllPosts();
@@ -21,9 +26,6 @@ export default function PostList() {
     }
   }
 
-  useEffect(() => {
-    getTrashPostsOnLoad();
-  }, []);
 
   useEffect(() => {
     if (search) {
