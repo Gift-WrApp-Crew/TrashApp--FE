@@ -9,7 +9,6 @@ import styles from './PostForm.css';
 export default function PostForm() {
   const [fileInputState, setFileInputState] = useState('');
   const [previewSource, setPreviewSource] = useState('');
-  const [selectedFile, setSelectedFile] = useState('');
   const [caption, setCaption] = useState('');
   const history = useNavigate();
 
@@ -36,6 +35,7 @@ export default function PostForm() {
   const uploadImage = async (image) => {
     try {
       const { result } = await insertImage(image);
+      console.log('result', result.secure_url);
       const { username } = await getUser();
 
       await createPost({
@@ -76,14 +76,6 @@ export default function PostForm() {
           </form>
         </div>
       </div>
-
-      {/* <div className={styles.PostCard}>
-        <h3>{post.caption}</h3>
-        <p> {post.created_at}</p>
-        <p> {post.username}</p>
-        <img src={post.image_url} />
-      </div> */}
     </>
   );
 }
-  

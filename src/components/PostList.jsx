@@ -36,9 +36,9 @@ export default function PostList() {
 
   function conditionalRender() {
     if (!filteredResults.length) {
-      return posts.length && posts.map((post) => <Post key={post.id} post={post} />);
+      return posts.length && posts.map((post) => <Post key={post.id} post={post} getTrashPostsOnLoad={getTrashPostsOnLoad} />);
     } else {
-      return filteredResults.map((post) => <Post key={post.id} post={post} />);
+      return filteredResults.map((post) => <Post key={post.id} post={post} getTrashPostsOnLoad={getTrashPostsOnLoad} />);
     }
   }
 

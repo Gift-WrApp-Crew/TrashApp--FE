@@ -1,6 +1,5 @@
 /* eslint-disable max-len */
 import styles from './Post.css';
-// import { useHistory } from 'react-router-dom';
 import { updatePost } from '../../state/services/fetch-utils';
 import { deletePost } from '../../state/services/fetch-utils';
 import { getUser } from '../../state/services/fetch-utils';
@@ -8,9 +7,6 @@ import { addtoFavorites } from '../../state/services/fetch-utils';
 // import React, { useEffect, useState } from 'react';
 
 export default function Post({ post, getTrashPostsOnLoad }) {
-  console.log(post, 'POST');
-  // const [fav, setFav] = useState('');
-
   async function handleTrashIncrement() {
     await updatePost({
       ...post,
@@ -44,7 +40,6 @@ export default function Post({ post, getTrashPostsOnLoad }) {
       await deletePost({
         ...post,
       });
-    // history.push('/');
   }
 
   return (
@@ -58,8 +53,8 @@ export default function Post({ post, getTrashPostsOnLoad }) {
       </div>
       <h4 className={styles.Caption}>{post.caption}</h4>
       <div className={styles.Reactions}>
-        <button onClick={handleTreasureIncrement}>💎{post.treasure_reaction}</button>
-        <button onClick={handleTrashIncrement}>🗑️{post.trash_reaction}</button>
+        <button className={styles.Button}onClick={handleTreasureIncrement}>💎{post.treasure_reaction}</button>
+        <button className={styles.Button}onClick={handleTrashIncrement}>🗑️{post.trash_reaction}</button>
         <button onClick={handleDeletePost}>Delete Post</button>
         <button onClick={addFavoritePost}>❤️</button>
       </div>
