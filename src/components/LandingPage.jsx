@@ -2,14 +2,19 @@ import React from 'react';
 import styles from './LandingPage.css';
 
 export default function LandingPage() {
+  async function gotoFeed() {
+    location.replace('/posts');
+  }
   return (
     <>
-      <div className={styles.blockOne}></div>
-      <div className={styles.blockTwo}></div>
+      <div>
+        <img className={styles.firstImage} src="welcome.png" />
+        <img className={styles.firstImage} src="darkel.png" />
+        <img className={styles.firstImage} src="phone.png" />
+      </div>
+      <button onClick={gotoFeed} className={styles.Button}>
+        Lets Get Started! ♻️
+      </button>
     </>
-    // <div>
-    //   <img className={styles.LandingPage} src="./photo.png" />
-    //   <img className={styles.LandingPage} src="./photos.png" />
-    // </div>
   );
 }
