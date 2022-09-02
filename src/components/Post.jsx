@@ -48,7 +48,7 @@ export default function Post({ post, getTrashPostsOnLoad }) {
   }
 
   return (
-    <>
+    <div className={styles.PostCard}>
       <div className={styles.PostHeader}>
         <h2 className={styles.Username}>{post.username ?? 'Anonymous'}</h2>
         <h5 className={styles.CreatedAt}> {post.created_at ?? new Date().toDateString()}</h5>
@@ -63,6 +63,6 @@ export default function Post({ post, getTrashPostsOnLoad }) {
         <button onClick={handleDeletePost}>Delete Post</button>
         <button onClick={addFavoritePost}>❤️</button>
       </div>
-    </>
+    </div>
   );
 }

@@ -8,7 +8,7 @@
 .AboutUsContainer {
   display: flex;
   flex-direction: column;
-  font-family: Varela Round;
+  font-family: 'Xhers', sans-serif;
 }
 .ImageContainer {
   height: 170px;
