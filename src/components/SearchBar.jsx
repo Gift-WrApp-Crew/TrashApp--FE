@@ -2,27 +2,46 @@
 /* eslint-disable max-len */
 import { useState } from 'react';
 import styles from './SearchBar.css';
+import image from '../../public/trash.png';
 
 // import "./SearchBar.css";
 
-export default function SearchBar({ setFilteredData, search, setSearch }) {
+export default function SearchBar({ setFilteredResults, setFilteredData, search, setSearch }) {
+  const [query, setQuery] = useState('');
   const handleSearch = (e) => {
-    if (search === '') {
-      setFilteredData(false);
-    } else {
-      setFilteredData(true);
-    }
-    setSearch(e.target.value);
+    e.preventDefault();
+    setSearch(query);
+    setQuery('');
   };
-  // dont setSearch until you submit
-  // form on submit, setSearch=e.target.value
+
+  const reset = () => {
+    setSearch('');
+    setFilteredResults([]);
+  };
 
   return (
     <div className="search">
       <div className={styles.SearchBar}>
-        <h2>Filter Your Trash</h2>
-        <input onChange={handleSearch} type="search" placeholder="Search Posts" />
-        <button>Search!</button>
+        <form
+          onSubmit={handleSearch}
+          className={styles.SearchForm}
+          style={{ backgroundImage: `url(${image})` }}
+        >
+          <h2 style={{ background: 'red' }}>Filter Your Trash</h2>
+          <input
+            onChange={(e) => setQuery(e.target.value)}
+            type="search"
+            placeholder="Search Posts"
+          />
+          <div className={styles.ButtonDiv}>
+            <button className={styles.SearchButton}>🔎</button>
+            {search.length ? (
+              <button onClick={reset} className={styles.SearchButton}>
+                ✖️
+              </button>
+            ) : null}
+          </div>
+        </form>
       </div>
     </div>
   );

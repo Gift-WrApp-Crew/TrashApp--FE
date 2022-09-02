@@ -3,6 +3,8 @@ import styles from './Post.css';
 import { updatePost } from '../../state/services/fetch-utils';
 import { deletePost } from '../../state/services/fetch-utils';
 import { getUser } from '../../state/services/fetch-utils';
+import { addtoFavorites } from '../../state/services/fetch-utils';
+// import React, { useEffect, useState } from 'react';
 
 export default function Post({ post, getTrashPostsOnLoad }) {
   async function handleTrashIncrement() {
@@ -12,6 +14,17 @@ export default function Post({ post, getTrashPostsOnLoad }) {
     });
     getTrashPostsOnLoad();
   }
+
+  async function addFavoritePost() {
+    const newFavorite = await addtoFavorites(post.id);
+    console.log(newFavorite, 'newFavorite');
+    // await fetch();
+  }
+
+  // useEffect(() => {
+  //   const matchingId = post.favPosts.find((favPost) => Number(favPost.id) === Number(post.id));
+  //   setFav(matchingId);
+  // }, [post.favPosts, post.id]);
 
   async function handleTreasureIncrement() {
     await updatePost({
@@ -25,14 +38,14 @@ export default function Post({ post, getTrashPostsOnLoad }) {
     const { username } = await getUser();
     if (post.username === username)
       await deletePost({
-        ...post
+        ...post,
       });
   }
 
   return (
     <div className={styles.PostCard}>
       <div className={styles.PostHeader}>
-        <h2 className={styles.Username}>{post.username}</h2>
+        <h2 className={styles.Username}>{post.username ?? 'Anonymous'}</h2>
         <h5 className={styles.CreatedAt}> {post.created_at ?? new Date().toDateString()}</h5>
       </div>
       <div className={styles.ImageContainer}>
@@ -43,6 +56,7 @@ export default function Post({ post, getTrashPostsOnLoad }) {
         <button className={styles.Button}onClick={handleTreasureIncrement}>💎{post.treasure_reaction}</button>
         <button className={styles.Button}onClick={handleTrashIncrement}>🗑️{post.trash_reaction}</button>
         <button onClick={handleDeletePost}>Delete Post</button>
+        <button onClick={addFavoritePost}>❤️</button>
       </div>
     </div>
   );
