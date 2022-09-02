@@ -16,7 +16,7 @@ export default function AboutUs() {
           </div>
         </div>
         <div className={styles.TeamMember}>
-          <img className={styles.ImageContainer} src="./delaney.jpg" />
+          <img className={styles.ImageContainer} src="./beth.png" />
           <h3>Beth Melesse</h3>
           <div className={styles.Buttons}>
             <LinkButton link="https://github.com/bethmelmtv" />
@@ -32,7 +32,7 @@ export default function AboutUs() {
           </div>
         </div>
         <div className={styles.TeamMember}>
-          <img className={styles.ImageContainer} src="./delaney.jpg" />
+          <img className={styles.ImageContainer} src="./hailey.png.jpg" />
           <h3>Hailey Steineke</h3>
           <div className={styles.Buttons}>
             <LinkButton link="https://github.com/hdsteineke" />

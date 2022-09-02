@@ -1,7 +1,7 @@
 .Container {
   position: absolute;
   left: 50%;
-  top: 50%;
+  top: 65%;
   transform: translate(-50%, -50%);
   border: 5px solid #ffff00;
   padding: 20px;
@@ -13,6 +13,7 @@
   border-radius: 10%;
   background-color: #7e8f31;
   font-family: 'Xhers', sans-serif;
+  margin-bottom: 30px;
 }
 
 .FormContainer {

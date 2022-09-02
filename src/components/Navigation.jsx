@@ -21,7 +21,7 @@ export default function Navigation() {
   return (
     <AppBar position="static" style={{ backgroundColor: 'black' }} sx={{ width: '100%' }}>
       <Toolbar style={{ color: '#7e8f31' }}>
-        <Stack direction="row" spacing={25}>
+        <Stack direction="row" spacing={10}>
           <Button
             size="large"
             edge="start"
@@ -49,7 +49,7 @@ export default function Navigation() {
             color="inherit"
             aria-label="logo"
             component={Link}
-            to={'/favorite'}
+            to={'/favorites'}
           >
             <FavoriteIcon sx={{ fontSize: 30 }} />
           </Button>

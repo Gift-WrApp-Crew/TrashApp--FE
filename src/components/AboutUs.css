@@ -3,12 +3,17 @@
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  /* position: absolute;
+  top: 30px; */
 }
 
 .AboutUsContainer {
   display: flex;
   flex-direction: column;
   font-family: 'Xhers', sans-serif;
+  position: absolute;
+  top: 300px;
+  left: 90px;
 }
 .ImageContainer {
   height: 170px;
@@ -22,11 +27,11 @@
 .TeamMember {
   height: 400=px;
   display: flex;
-  background-color: lightgreen;
+  background-color: #7e8f31;
   align-items: center;
   flex-wrap: wrap;
   /* padding-left: 20px; */
-  font-family: Varela Round;
+  font-family: 'Xhers', sans-serif;
   margin: 40px;
   border: 3px black solid;
   -webkit-box-shadow: 6px 9px 18px -3px rgba(0, 0, 0, 0.39);

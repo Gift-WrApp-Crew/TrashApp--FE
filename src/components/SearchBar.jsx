@@ -15,7 +15,7 @@ export default function SearchBar({ setFilteredResults, setFilteredData, search,
   };
 
   const reset = () => {
-    setSearch('');
+    setQuery('');
     setFilteredResults([]);
   };
 
@@ -30,7 +30,8 @@ export default function SearchBar({ setFilteredResults, setFilteredData, search,
           <h2 style={{ background: 'red' }}>Filter Your Trash</h2>
           <input
             onChange={(e) => setQuery(e.target.value)}
-            type="search"
+            type="text"
+            value={query}
             placeholder="Search Posts"
           />
           <div className={styles.ButtonDiv}>

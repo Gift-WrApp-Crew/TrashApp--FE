@@ -1,5 +1,5 @@
 /* eslint-disable max-len */
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { getAllPosts, insertImage } from '../../state/services/fetch-utils.js';
 import { createPost } from '../../state/services/fetch-utils.js';

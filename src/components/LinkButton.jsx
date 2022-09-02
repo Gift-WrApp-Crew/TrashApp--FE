@@ -7,10 +7,10 @@ import { LinkedIn } from '@mui/icons-material';
 export default function LinkButton({ text, link, linkedin }) {
   const ColorButton = styled(Button)(({ theme }) => ({
     color: theme.palette.getContrastText('#221F1F'),
-    backgroundColor: 'grey',
+    backgroundColor: 'black',
     width: '20px',
     '&:hover': {
-      backgroundColor: 'green',
+      backgroundColor: '#ccb3ff',
     },
   }));
   return (
