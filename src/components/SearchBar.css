@@ -1,9 +1,6 @@
 .SearchBar {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-family: 'Xhers', sans-serif;
+  margin-left: 150px;
 }
 
 .SearchForm {

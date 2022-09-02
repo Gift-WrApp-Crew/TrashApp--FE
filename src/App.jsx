@@ -12,14 +12,15 @@ import styles from './App.css';
 
 import Navigation from './components/Navigation';
 
-
 export default function App() {
   const [currentUser, setCurrentUser] = useState({});
 
   return (
     <Router>
-      <header>{currentUser.id ? <Navigation /> : !(<Navigation />)}
-        <img className={styles.Logo} src="./logo.png" /></header>
+      <header>
+        {currentUser.id ? <Navigation /> : !(<Navigation />)}
+        <img className={styles.Logo} src="./newlogo.png" />
+      </header>
       <main>
         <Routes>
           <Route

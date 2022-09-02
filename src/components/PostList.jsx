@@ -13,7 +13,6 @@ export default function PostList() {
   const [search, setSearch] = useState('');
   const [filteredResults, setFilteredResults] = useState([]);
 
-
   async function getTrashPostsOnLoad() {
     const trashPosts = await getAllPosts();
 
@@ -47,7 +46,7 @@ export default function PostList() {
 
   return (
     <>
-      <div styles={{ position: 'relative', left: '80px' }}>
+      <div styles={{ position: 'absolute', left: 30, top: 0, paddingLeft: 20 }}>
         <SearchBar
           setFilteredData={setFilteredData}
           setSearch={setSearch}
