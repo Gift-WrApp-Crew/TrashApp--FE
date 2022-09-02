@@ -7,9 +7,7 @@ export default function LandingPage() {
   }
   return (
     <>
-      <div>
-        <img className={styles.firstImage} src="welcome.png" />
-        <img className={styles.firstImage} src="darkel.png" />
+      <div className={styles.landingPageImage}>
         <img className={styles.firstImage} src="phone.png" />
       </div>
       <button onClick={gotoFeed} className={styles.Button}>
