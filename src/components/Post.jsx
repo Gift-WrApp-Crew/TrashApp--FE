@@ -4,7 +4,7 @@ import { updatePost } from '../../state/services/fetch-utils';
 import { deletePost } from '../../state/services/fetch-utils';
 import { getUser } from '../../state/services/fetch-utils';
 import { addtoFavorites } from '../../state/services/fetch-utils';
-// import React, { useEffect, useState } from 'react';
+
 
 export default function Post({ post, getTrashPostsOnLoad }) {
   async function handleTrashIncrement() {
@@ -16,15 +16,8 @@ export default function Post({ post, getTrashPostsOnLoad }) {
   }
 
   async function addFavoritePost() {
-    const newFavorite = await addtoFavorites(post.id);
-    console.log(newFavorite, 'newFavorite');
-    // await fetch();
+    await addtoFavorites(post.id);
   }
-
-  // useEffect(() => {
-  //   const matchingId = post.favPosts.find((favPost) => Number(favPost.id) === Number(post.id));
-  //   setFav(matchingId);
-  // }, [post.favPosts, post.id]);
 
   async function handleTreasureIncrement() {
     await updatePost({
@@ -40,6 +33,7 @@ export default function Post({ post, getTrashPostsOnLoad }) {
       await deletePost({
         ...post,
       });
+    getTrashPostsOnLoad();
   }
 
   return (
@@ -53,11 +47,17 @@ export default function Post({ post, getTrashPostsOnLoad }) {
       </div>
       <h4 className={styles.Caption}>{post.caption}</h4>
       <div className={styles.Reactions}>
-        <button className={styles.Button} onClick={handleTreasureIncrement}>💎{post.treasure_reaction}</button>
-        <button className={styles.Button} onClick={handleTrashIncrement}>🗑️{post.trash_reaction}</button>
-        <button onClick={handleDeletePost}>Delete Post</button>
+        <button className={styles.Button} onClick={handleTreasureIncrement}>
+          💎{post.treasure_reaction}
+        </button>
+        <button className={styles.Button} onClick={handleTrashIncrement}>
+          🗑️{post.trash_reaction}
+        </button>
         <button onClick={addFavoritePost}>❤️</button>
       </div>
+      <button className={styles.DeleteButton} onClick={handleDeletePost}>
+        Delete Post
+      </button>
     </div>
   );
 }

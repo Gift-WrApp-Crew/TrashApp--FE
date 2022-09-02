@@ -13,7 +13,6 @@ export default function PostList({ posts, setPosts }) {
   const [filteredResults, setFilteredResults] = useState([]);
 
   useEffect(() => {
-    console.log('fetchingPosts');
     getTrashPostsOnLoad();
   }, []);
 
