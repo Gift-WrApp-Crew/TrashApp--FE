@@ -24,7 +24,7 @@ export default function AboutUs() {
           </div>
         </div>
         <div className={styles.TeamMember}>
-          <img className={styles.ImageContainer} src="./delaney.jpg" />
+          <img className={styles.ImageContainer} src="./jeffpic.jpg" />
           <h3>Jeff Allison</h3>
           <div className={styles.Buttons}>
             <LinkButton link="https://github.com/JeffreyAllison" />
