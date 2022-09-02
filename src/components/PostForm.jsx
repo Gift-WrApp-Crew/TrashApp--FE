@@ -1,12 +1,12 @@
 /* eslint-disable max-len */
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { insertImage } from '../../state/services/fetch-utils.js';
+import { getAllPosts, insertImage } from '../../state/services/fetch-utils.js';
 import { createPost } from '../../state/services/fetch-utils.js';
 import { getUser } from '../../state/services/fetch-utils.js';
 import styles from './PostForm.css';
 
-export default function PostForm() {
+export default function PostForm({ setPosts }) {
   const [fileInputState, setFileInputState] = useState('');
   const [previewSource, setPreviewSource] = useState('');
   const [caption, setCaption] = useState('');
@@ -25,10 +25,12 @@ export default function PostForm() {
     };
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!previewSource) return;
-    uploadImage(previewSource);
+    await uploadImage(previewSource);
+    const posts = await getAllPosts();
+    setPosts(posts);
     history('/posts');
   };
 

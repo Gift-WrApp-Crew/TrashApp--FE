@@ -15,6 +15,10 @@ import Navigation from './components/Navigation';
 
 export default function App() {
   const [currentUser, setCurrentUser] = useState({});
+  const [posts, setPosts] = useState(null);
+
+
+  console.log('currentUser', currentUser);
 
   return (
     <Router>
@@ -45,14 +49,14 @@ export default function App() {
           <Route
             exact path="/posts"
             element={currentUser.id 
-              ? <PostList /> 
+              ? <PostList posts={posts} setPosts={setPosts}/> 
               : <Navigate to="/" />}
           />
 
           <Route
             exact path="/create-post"
             element={currentUser.id 
-              ? <PostForm /> 
+              ? <PostForm setPosts={setPosts}/> 
               : <Navigate to="/" />}
           />
         </Routes>
