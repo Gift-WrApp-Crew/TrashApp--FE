@@ -40,6 +40,7 @@ export default function Post({ post, getTrashPostsOnLoad }) {
       await deletePost({
         ...post,
       });
+    getTrashPostsOnLoad();
   }
 
   return (
