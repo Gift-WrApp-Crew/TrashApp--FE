@@ -18,16 +18,42 @@ export default function App() {
   const [currentUser, setCurrentUser] = useState({});
   const [posts, setPosts] = useState(null);
 
-
   return (
     <Router>
       <header>
-        {currentUser.id ? <Navigation /> : !(<Navigation />)}
+        <Navigation />
         <img className={styles.Logo} src="./newlogo.png" />
       </header>
 
       <main>
         <Routes>
+
+          <Route
+            exact
+            path="/"
+            element={
+              currentUser.id ? <Navigate to="/posts" /> : <SignIn setCurrentUser={setCurrentUser} />
+            }
+          />
+
+          <Route
+            exact
+            path="/signup"
+            element={
+              currentUser.id ? <Navigate to="/posts" /> : <SignUp setCurrentUser={setCurrentUser} />
+            }
+          />
+          <Route exact path="/about" element={currentUser.id ? <AboutUs /> : <Navigate to="/" />} />
+
+          <Route
+            exact
+            path="/posts"
+            element={
+              currentUser.id ? <PostList posts={posts} setPosts={setPosts} /> : <Navigate to="/" />
+            }
+          />
+          // delete above routes
+          
           <Route exact path="/"
             element={currentUser.id 
               ? <Navigate to="/posts" /> 
@@ -53,8 +79,14 @@ export default function App() {
 
           <Route exact path="/landing" 
             element={<LandingPage />} />
-
+            
+// CHOOSE 84 or 89!!!!!!!!
           <Route
+            exact
+            path="/create-post"
+            element={currentUser.id ? <PostForm setPosts={setPosts} /> : <Navigate to="/" />}
+          />
+
             exact path="/create-post"
             element={currentUser.id 
               ? <PostForm setPosts={setPosts}/> 

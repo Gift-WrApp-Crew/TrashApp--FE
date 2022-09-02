@@ -1,9 +1,5 @@
-.favoritesList {
-  /* display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  align-items: stretch;
-  align-content: center; */
-  flex-wrap: wrap;
+.FavoritesList {
+  display: flex;
+  justify-content: center;
+  flex-direction: rows;
 }

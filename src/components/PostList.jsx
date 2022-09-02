@@ -7,11 +7,10 @@ import { getAllPosts } from '../../state/services/fetch-utils';
 import styles from './PostList.css';
 import SearchBar from './SearchBar.jsx';
 
-export default function PostList({ posts, setPosts}) {
+export default function PostList({ posts, setPosts }) {
   const [filteredData, setFilteredData] = useState(false);
   const [search, setSearch] = useState('');
   const [filteredResults, setFilteredResults] = useState([]);
-
 
   useEffect(() => {
     getTrashPostsOnLoad();
@@ -25,7 +24,6 @@ export default function PostList({ posts, setPosts}) {
     }
   }
 
-
   useEffect(() => {
     if (search) {
       const filteredPosts = posts.filter((value) => {
@@ -37,9 +35,16 @@ export default function PostList({ posts, setPosts}) {
 
   function conditionalRender() {
     if (!filteredResults.length) {
-      return posts.length && posts.map((post) => <Post key={post.id} post={post} getTrashPostsOnLoad={getTrashPostsOnLoad} />);
+      return (
+        posts.length &&
+        posts.map((post) => (
+          <Post key={post.id} post={post} getTrashPostsOnLoad={getTrashPostsOnLoad} />
+        ))
+      );
     } else {
-      return filteredResults.map((post) => <Post key={post.id} post={post} getTrashPostsOnLoad={getTrashPostsOnLoad} />);
+      return filteredResults.map((post) => (
+        <Post key={post.id} post={post} getTrashPostsOnLoad={getTrashPostsOnLoad} />
+      ));
     }
   }
 
