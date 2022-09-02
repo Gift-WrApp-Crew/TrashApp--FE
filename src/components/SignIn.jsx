@@ -3,6 +3,8 @@ import { useState } from 'react';
 import './SignIn.css';
 import { getUser, signInUserFunction } from '../../state/services/fetch-utils';
 import { NavLink } from 'react-router-dom';
+
+
 export default function SignIn({ setCurrentUser }) {
   const [signInUser, setSignInUser] = useState({ email: '', password: '' });
 
@@ -15,7 +17,6 @@ export default function SignIn({ setCurrentUser }) {
   return (
     <div>
       <form className="sign-in-form" onSubmit={handleSignIn}>
-        <h4>THIS IS OUR LOGO</h4>
         <label>
           Email
           <input

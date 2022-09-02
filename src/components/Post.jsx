@@ -1,6 +1,10 @@
 /* eslint-disable max-len */
 import styles from './Post.css';
 import { updatePost } from '../../state/services/fetch-utils';
+import { deletePost } from '../../state/services/fetch-utils';
+import { getUser } from '../../state/services/fetch-utils';
+import { addtoFavorites } from '../../state/services/fetch-utils';
+
 
 export default function Post({ post, getTrashPostsOnLoad }) {
   async function handleTrashIncrement() {
@@ -11,6 +15,10 @@ export default function Post({ post, getTrashPostsOnLoad }) {
     getTrashPostsOnLoad();
   }
 
+  async function addFavoritePost() {
+    await addtoFavorites(post.id);
+  }
+
   async function handleTreasureIncrement() {
     await updatePost({
       ...post,
@@ -19,10 +27,19 @@ export default function Post({ post, getTrashPostsOnLoad }) {
     getTrashPostsOnLoad();
   }
 
+  async function handleDeletePost() {
+    const { username } = await getUser();
+    if (post.username === username)
+      await deletePost({
+        ...post,
+      });
+    getTrashPostsOnLoad();
+  }
+
   return (
-    <>
+    <div className={styles.PostCard}>
       <div className={styles.PostHeader}>
-        <h2 className={styles.Username}>{post.username}</h2>
+        <h2 className={styles.Username}>{post.username ?? 'Anonymous'}</h2>
         <h5 className={styles.CreatedAt}> {post.created_at ?? new Date().toDateString()}</h5>
       </div>
       <div className={styles.ImageContainer}>
@@ -30,9 +47,17 @@ export default function Post({ post, getTrashPostsOnLoad }) {
       </div>
       <h4 className={styles.Caption}>{post.caption}</h4>
       <div className={styles.Reactions}>
-        <button onClick={handleTreasureIncrement}>💎{post.treasure_reaction}</button>
-        <button onClick={handleTrashIncrement}>🗑️{post.trash_reaction}</button>
+        <button className={styles.Button} onClick={handleTreasureIncrement}>
+          💎{post.treasure_reaction}
+        </button>
+        <button className={styles.Button} onClick={handleTrashIncrement}>
+          🗑️{post.trash_reaction}
+        </button>
+        <button onClick={addFavoritePost}>❤️</button>
       </div>
-    </>
+      <button className={styles.DeleteButton} onClick={handleDeletePost}>
+        Delete Post
+      </button>
+    </div>
   );
 }

@@ -1,0 +1,23 @@
+.SearchBar {
+  display: flex;
+  margin-left: 50px;
+}
+
+.SearchForm {
+  height: 300px;
+  width: 300px;
+  border-radius: 50%;
+  font-family: 'Xhers', sans-serif;
+  color: white;
+}
+
+.SearchButton {
+  background: lightgrey;
+}
+
+.ButtonDiv {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}

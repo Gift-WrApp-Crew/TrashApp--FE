@@ -1,18 +1,19 @@
 .Container {
   position: absolute;
   left: 50%;
-  top: 50%;
+  top: 65%;
   transform: translate(-50%, -50%);
   border: 5px solid #ffff00;
   padding: 20px;
   box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, 0.2);
-  width: 500px;
-  height: 550px;
+  width: 525px;
+  height: 525px;
   border: 1px solid #2d2d2d;
   margin: 20px;
   border-radius: 10%;
   background-color: #7e8f31;
   font-family: 'Xhers', sans-serif;
+  margin-bottom: 30px;
 }
 
 .FormContainer {
