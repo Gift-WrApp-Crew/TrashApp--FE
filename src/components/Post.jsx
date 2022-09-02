@@ -4,7 +4,7 @@ import { updatePost } from '../../state/services/fetch-utils';
 import { deletePost } from '../../state/services/fetch-utils';
 import { getUser } from '../../state/services/fetch-utils';
 import { addtoFavorites } from '../../state/services/fetch-utils';
-// import React, { useEffect, useState } from 'react';
+
 
 export default function Post({ post, getTrashPostsOnLoad }) {
   async function handleTrashIncrement() {
@@ -16,15 +16,8 @@ export default function Post({ post, getTrashPostsOnLoad }) {
   }
 
   async function addFavoritePost() {
-    const newFavorite = await addtoFavorites(post.id);
-    console.log(newFavorite, 'newFavorite');
-    // await fetch();
+    await addtoFavorites(post.id);
   }
-
-  // useEffect(() => {
-  //   const matchingId = post.favPosts.find((favPost) => Number(favPost.id) === Number(post.id));
-  //   setFav(matchingId);
-  // }, [post.favPosts, post.id]);
 
   async function handleTreasureIncrement() {
     await updatePost({

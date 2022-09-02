@@ -18,7 +18,6 @@ export default function App() {
   const [currentUser, setCurrentUser] = useState({});
   const [posts, setPosts] = useState(null);
 
-  console.log('currentUser', currentUser);
 
   return (
     <Router>
