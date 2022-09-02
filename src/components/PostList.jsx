@@ -14,7 +14,6 @@ export default function PostList({ posts, setPosts}) {
 
 
   useEffect(() => {
-    console.log('fetchingPosts');
     getTrashPostsOnLoad();
   }, []);
 

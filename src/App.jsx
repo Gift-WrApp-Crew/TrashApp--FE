@@ -19,53 +19,47 @@ export default function App() {
   const [posts, setPosts] = useState(null);
 
 
-  console.log('currentUser', currentUser);
-
   return (
     <Router>
       <header>
         {currentUser.id ? <Navigation /> : !(<Navigation />)}
         <img className={styles.Logo} src="./newlogo.png" />
       </header>
+
       <main>
         <Routes>
-          <Route
-            exact path="/"
+          <Route exact path="/"
             element={currentUser.id 
               ? <Navigate to="/posts" /> 
-              : <SignIn setCurrentUser={setCurrentUser} />
-            }
-          />
+              : <SignIn setCurrentUser={setCurrentUser} />} />
 
-          <Route
-            exact path="/signup" 
+          <Route exact path="/signup" 
             element={currentUser.id 
               ? <Navigate to="/posts" />
-              : <SignUp setCurrentUser={setCurrentUser} />
-            }
-          />
+              : <SignUp setCurrentUser={setCurrentUser} />} />
+
           <Route exact path="/about" 
             element={currentUser.id 
               ? <AboutUs /> 
               : <Navigate to="/" />} />
 
-          <Route
-            exact path="/posts"
+          <Route exact path="/posts"
             element={currentUser.id 
               ? <PostList posts={posts} setPosts={setPosts}/> 
-              : <Navigate to="/" />}
-          />
+              : <Navigate to="/" />} />
 
-          <Route exact path="/favorites" element={<FavoritesList />} />
+          <Route exact path="/favorites" 
+            element={<FavoritesList />} />
 
-          <Route exact path="/landing" element={<LandingPage />} />
+          <Route exact path="/landing" 
+            element={<LandingPage />} />
 
           <Route
             exact path="/create-post"
             element={currentUser.id 
               ? <PostForm setPosts={setPosts}/> 
-              : <Navigate to="/" />}
-          />
+              : <Navigate to="/" />} />
+
         </Routes>
       </main>
     </Router>
