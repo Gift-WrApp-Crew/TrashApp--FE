@@ -6,6 +6,8 @@ import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-d
 import PostList from './components/PostList.jsx';
 import PostForm from './components/PostForm';
 import AboutUs from './components/AboutUs';
+import LandingPage from './components/LandingPage';
+import FavoritesList from './components/FavoritesList';
 
 import styles from './App.css';
 // import logo from './logo.png';
@@ -53,6 +55,10 @@ export default function App() {
             path="/posts"
             element={currentUser.id ? <PostList /> : <Navigate to="/" />}
           />
+
+          <Route exact path="/favorites" element={<FavoritesList />} />
+
+          <Route exact path="/landing" element={<LandingPage />} />
 
           <Route
             exact
