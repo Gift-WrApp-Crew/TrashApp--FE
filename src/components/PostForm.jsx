@@ -9,7 +9,7 @@ import styles from './PostForm.css';
 export default function PostForm({ setPosts }) {
   const [fileInputState, setFileInputState] = useState('');
   const [previewSource, setPreviewSource] = useState('');
-  const [caption, setCaption] = useState('');
+  const [caption, setCaption] = useState('Is it trash?');
   const history = useNavigate();
 
   const handleFileInputChange = (e) => {
