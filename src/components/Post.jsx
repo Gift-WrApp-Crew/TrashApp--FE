@@ -47,11 +47,17 @@ export default function Post({ post, getTrashPostsOnLoad }) {
       </div>
       <h4 className={styles.Caption}>{post.caption}</h4>
       <div className={styles.Reactions}>
-        <button className={styles.Button} onClick={handleTreasureIncrement}>💎{post.treasure_reaction}</button>
-        <button className={styles.Button} onClick={handleTrashIncrement}>🗑️{post.trash_reaction}</button>
-        <button onClick={handleDeletePost}>Delete Post</button>
+        <button className={styles.Button} onClick={handleTreasureIncrement}>
+          💎{post.treasure_reaction}
+        </button>
+        <button className={styles.Button} onClick={handleTrashIncrement}>
+          🗑️{post.trash_reaction}
+        </button>
         <button onClick={addFavoritePost}>❤️</button>
       </div>
+      <button className={styles.DeleteButton} onClick={handleDeletePost}>
+        Delete Post
+      </button>
     </div>
   );
 }

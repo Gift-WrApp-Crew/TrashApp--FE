@@ -42,10 +42,7 @@ body {
   color: black;
   padding: 20px;
   text-align: center;
-  text-decoration: none;
-  display: inline-block;
   font-size: 16px;
-  margin: 4px 2px;
   border-radius: 12px;
   font-family: 'Xhers', sans-serif;
 }
@@ -54,22 +51,17 @@ body {
   background-color: #c5dca3;
   border: none;
   color: black;
-  padding: 15px;
+  padding: 10px;
   text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  margin: 4px;
   border-radius: 10px;
   font-family: 'Xhers', sans-serif;
 }
 
-.ImageContainer {
-  height: 60%;
-}
-
 .PostImage {
-  width: 100%;
-  height: 100%;
+  height: 300px;
+  width: 280px;
+  background: transparent no-repeat center;
+  background-size: cover;
   border-radius: 5%;
   border: 7px solid #555;
   border-color: #c5dca3;
@@ -82,11 +74,25 @@ body {
 }
 
 .Button {
-  background-color: #c5dca3;
+  /* background-color: #c5dca3;
   border: none;
   border-radius: 12px;
   margin: 10px;
   padding: 5px;
   width: 30px;
-  height: 30px;
+  height: 30px; */
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-end;
+  align-content: flex-end;
+}
+
+.DeleteButton {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-end;
 }

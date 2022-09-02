@@ -1,27 +1,12 @@
-/* .LandingPage {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 40%;
-  width: 500px;
-  height: 500px;
-} */
-
-.firstImage {
-  /* margin: auto;
-  width: 60%;
-  padding: 10px;
-  background-repeat: ; */
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: center;
+.landingPageImage {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  align-content: stretch;
+  width: auto;
 }
-/* .blockTwo {
-  width: 1800px;
-  height: 700px;
-  background-color: pink;
-  background-size: auto;
-} */
 
 .Button {
   margin: auto;
