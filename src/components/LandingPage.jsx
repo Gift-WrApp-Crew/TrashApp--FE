@@ -1,10 +1,14 @@
 import React from 'react';
 import styles from './LandingPage.css';
+import { useNavigate } from 'react-router-dom';
 
 export default function LandingPage() {
+  const history = useNavigate();
+
   async function gotoFeed() {
-    location.replace('/posts');
+    history('/posts');
   }
+
   return (
     <>
       <div className={styles.landingPageImage}>
