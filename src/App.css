@@ -4,3 +4,9 @@
   margin-right: auto;
   width: 300px;
 }
+
+.Feed {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}

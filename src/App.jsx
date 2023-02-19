@@ -25,7 +25,7 @@ export default function App() {
         <img className={styles.Logo} src="./newlogo.png" />
       </header>
 
-      <main>
+      <main className={styles.Feed}>
         <Routes>
           <Route
             exact
