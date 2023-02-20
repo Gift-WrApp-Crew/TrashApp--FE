@@ -1,4 +1,4 @@
-.landingPageImage {
+/* .landingPageImage {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -6,13 +6,18 @@
   align-items: center;
   align-content: stretch;
   width: auto;
+} */
+
+.firstImage {
+  width: 800px;
 }
 
 .Button {
-  margin: auto;
-  margin-top: 100px;
   width: 50%;
+  margin: 10px;
   padding: 10px;
-  padding: 50px;
-  margin-bottom: 75px;
+}
+
+.Button:hover {
+  cursor: pointer;
 }
