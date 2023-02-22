@@ -3,19 +3,19 @@ body {
 }
 
 .PostCard {
-  width: 500px;
-  height: 550px;
+  width: 400px;
+  height: 450px;
   border: 1px solid #2d2d2d;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 20px;
+  margin: 15px;
   /* border-radius: 15px 50px 30px; */
   border-radius: 10%;
   background-color: #7e8f31;
   box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, 0.2);
-  padding: 20px;
+  padding: 15px;
   border: solid black 1px;
 }
 
@@ -24,23 +24,23 @@ body {
   border: none;
   color: black;
   border-radius: 5px;
-  padding: 15px;
-  margin: 30px;
+  padding: 10px;
+  margin: 10px;
   font-family: 'Xhers', sans-serif;
 }
 
 .PostHeader {
   display: flex;
+  align-items: center;
   width: 90%;
   justify-content: space-between;
-  margin: 8px;
 }
 
 .Username {
   background-color: #c5dca3;
   border: none;
   color: black;
-  padding: 20px;
+  padding: 10px;
   text-align: center;
   font-size: 16px;
   border-radius: 12px;
@@ -58,8 +58,8 @@ body {
 }
 
 .PostImage {
-  height: 300px;
-  width: 280px;
+  height: 250px;
+  width: 220px;
   background: transparent no-repeat center;
   background-size: cover;
   border-radius: 5%;
@@ -74,13 +74,6 @@ body {
 }
 
 .Button {
-  /* background-color: #c5dca3;
-  border: none;
-  border-radius: 12px;
-  margin: 10px;
-  padding: 5px;
-  width: 30px;
-  height: 30px; */
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
